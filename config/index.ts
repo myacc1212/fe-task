@@ -1,5 +1,5 @@
 "use client";
-import { configureChains, createConfig } from "wagmi";
+import { configureChains, createConfig, sepolia } from "wagmi";
 import { arbitrum, optimism, mainnet } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 import { MetaMaskConnector } from "wagmi/connectors/metaMask";
@@ -18,7 +18,7 @@ export interface IConnectorsByWallet {
 }
 
 const { publicClient, chains } = configureChains(
-  [arbitrum, mainnet, optimism],
+  [arbitrum, mainnet, optimism, sepolia],
   [publicProvider()]
 );
 

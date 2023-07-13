@@ -30,17 +30,14 @@ import { shortenAddress } from "@/lib/utils";
 import ConnectWallet from "./components/connect-wallet";
 
 const UserNfts = () => {
-  const [excludeFilters, setExcludeFilters] = React.useState<NftFilters[]>([
-    NftFilters.AIRDROPS,
-    NftFilters.SPAM,
-  ]);
+  const [excludeFilters, setExcludeFilters] = React.useState<NftFilters[]>([]);
   const { disconnect } = useDisconnect();
 
   const { isConnected, address: account } = useAccount();
   const [orderBy, setOrderBy] = React.useState<NftOrdering | undefined>(
     NftOrdering.TRANSFERTIME
   );
-  const [network, setNetwork] = React.useState<Network>(Network.ETH_MAINNET);
+  const [network, setNetwork] = React.useState<Network>(Network.ETH_SEPOLIA);
 
   const { data, isLoading, isFetching, error } = useUserNfts(
     {
@@ -91,6 +88,7 @@ const UserNfts = () => {
           <SelectContent>
             <SelectGroup>
               <SelectLabel>Refreshes in</SelectLabel>
+              <SelectItem value={Network.ETH_SEPOLIA}>Sepolia</SelectItem>
               <SelectItem value={Network.ETH_MAINNET}>Ethereum</SelectItem>
               <SelectItem value={Network.ARB_MAINNET}>Arbitrum</SelectItem>
               <SelectItem value={Network.OPT_MAINNET}>Optimism</SelectItem>

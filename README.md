@@ -1,34 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# This is a front end task for insonmia labs
 
-## Getting Started
+To make this application work you need to add alchemy api key `ALCHEMY_API_KEY=YOUR_APIKEY` to .env file.
 
-First, run the development server:
+### Technical Details
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+For frontend framework I used tailwind with shadcdn ui components. For viewing btc price in different currencies I used react-table also for data fetching I used react-query. Everything is type safe. Also to not expose API_KEY I created a next route so that I use the key from server and not show it on frontend. For global data management I simply use built in context api
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+For the home page:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Page contains price details of USD, GBP and EUR currencies, refreshed at a default interval of 5 seconds.
+- Page includes feature to allow user choose between different data refresh intervals
+- Page supports feature to allow user toggle on/off some of the currencies displayed.
+- Page remembers user preferences for the features on-page by using local storage.

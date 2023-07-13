@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-const options = { method: "GET", headers: { accept: "application/json" } };
 import { Alchemy, NftFilters, NftOrdering } from "alchemy-sdk";
 import queryString from "query-string";
 import { GetUserNftsParams } from "@/hooks/use-user-nfts";
@@ -9,7 +8,7 @@ export async function GET(request: Request) {
   const { owner, network } = parsed.query as unknown as GetUserNftsParams;
   const settings = {
     apiKey: process.env.ALCHEMY_API_KEY,
-    network: network,
+    network,
   };
 
   const alchemy = new Alchemy(settings);
